@@ -1,0 +1,138 @@
+.content {
+    padding: 89px 0 0 230px;
+    width: 100vw;
+    height: 100vh;
+    height: 100svh;
+}
+
+.content_container {
+    width: 100%;
+    height: calc(100vh - 89px);
+    height: calc(100svh - 89px);
+    padding: 82px 60px 0 120px;
+    overflow-y: auto;
+    position: relative;
+}
+
+.content_container::-webkit-scrollbar {
+    width: 7px;
+}
+
+.content_container::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: #A8A8A8;
+}
+
+.mobile_join_headline {
+    display: none;
+    font-size: var(--font-size-16);
+}
+
+.content_header_headline {
+    font-weight: 700;
+    font-size: var(--font-size-61);
+}
+
+.leg_notice_container {
+    margin-top: 85px;
+    margin-bottom: 21vh;
+    position: relative;
+}
+
+h1 {
+    font-size: var(--font-size-27);
+    margin-bottom: 30px;
+}
+
+.impressum h1 {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: var(--font-size-24);
+    margin-bottom: 30px;
+}
+
+.impressum h2 {
+    margin-bottom: 40px;
+    text-wrap: balance;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    position: absolute;
+}
+
+/* === Impressum === */
+.impressum {
+    position: relative;
+    margin-bottom: 0px;
+}
+
+.contact {
+    width: 33%;
+    min-width: 320px;
+    font-size: var(--font-size-21);
+    gap: 20px;
+}
+
+.contact i {
+    margin-right: 5px;
+}
+
+.info_row {
+    align-items: center;
+}
+
+.source {
+    font-size: var(--font-size-21);
+    margin-top: 50px;
+}
+
+.source a,
+.privacy_policy a {
+    color: var(--darkBlue2-color);
+}
+
+.source a:hover,
+.privacy_policy a:hover {
+    color: var(--blue-color);
+    text-decoration: underline;
+}
+
+#impressum_button {
+    bottom: 8.5vh;
+    right: 30px;
+}
+
+/* === privacy policy === */
+
+.privacy_policy h2 {
+    margin-top: 30px;
+}
+
+h3, h4, p, li {
+    font-size: var(--font-size-21);
+    margin-bottom: 15px;
+}
+
+.privacy_policy button {
+    right: 0;
+    bottom: -14vh;
+}
+
+/* === Global === */
+
+.buttonOption2 {
+    font-weight: 700;
+    font-size: var(--font-size-21);
+    background-color: var(--darkBlue-color);
+    color: var(--white-color);
+    border: none;
+}
+
+.buttonOption2:hover {
+    background-color: var(--blue-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}

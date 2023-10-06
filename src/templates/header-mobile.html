@@ -1,0 +1,16 @@
+<div id="mobile_header" class="header flex-row box-shadow">
+    <img id="header_logo" src="src/img/capa2.svg" alt="">
+    <div id="mobile_header_initial" class="header_initials grid curser"
+        onclick="stopPropagation(event); openHeaderMenu()">
+    </div>
+    <button id="header_button" class="buttonOption2 flex-row curser" type="button" onclick="addtask('To do')">
+        <span>Create task</span>
+        <i class='bx bx-check'></i>
+    </button>
+    <div id="mobile_header_menu" class="flex-column d-none" onclick="stopPropagation(event)">
+        <a id="mobile_help_link" class="curser"
+            onclick="toggleTwoElements('help_link', 'help_includer'); closeHeaderMenu()">Help</a>
+        <a href="legal-notice.html" id="mobile_legal_notice_link" class="curser">Legal notice</a>
+        <a href="login.html" id="mobile_logout_link" class="curser">Log out</a>
+    </div>
+</div>

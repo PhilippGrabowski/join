@@ -1,0 +1,31 @@
+#header_button:hover {
+    background-color: var(--darkBlue-color);
+    box-shadow: unset;
+}
+
+#header_button:active {
+    background-color: var(--blue-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+#header_button i {
+    font-size: var(--font-size-27);
+}
+
+@media (min-width: 468px) {
+    #header_button {
+        display: none;
+    }
+    #mobile_header_initial {
+        display: unset;
+    }
+}
+
+@media (max-width: 468px) {
+    #header_button {
+        display: flex;
+    }
+    #mobile_header_initial {
+        display: none;
+    }
+}

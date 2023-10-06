@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="src/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="src/img/favicons/site.webmanifest">
+    <link rel="mask-icon" href="src/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="src/css/fonts.css">
+    <link rel="stylesheet" href="src/css/settings.css">
+    <link rel="stylesheet" href="src/css/global.css">
+    <link rel="stylesheet" href="src/css//templates/header.css">
+    <link rel="stylesheet" href="src/css/templates/sidebar.css">
+    <link rel="stylesheet" href="src/css/templates/help.css">
+    <link rel="stylesheet" href="src/css/add-task/style.css">
+    <link rel="stylesheet" href="src/css/add-task/header-button.css">
+    <link rel="stylesheet" href="src/css/add-task/mqueries.css">
+    <script src="src/js/storage.js"></script>
+    <script src="src/js/global.js"></script>
+    <script src="src/js/add-task/templates.js"></script>
+    <script src="src/js/add-task/script.js"></script>
+    <script src="src/js/add-task/select-category.js"></script>
+    <script src="src/js/add-task/select-contact.js"></script>
+    <script src="src/js/add-task/buttons.js"></script>
+    <script src="src/js/validation.js"></script>
+    <title>Join - Board</title>
+</head>
+
+<body onload="includeHTML(); loadData()" onclick="closeHeaderMenu()">
+    <div id="header_includer" w3-include-html="src/templates/header.html"></div>
+    <div id="sidebar_includer" w3-include-html="src/templates/sidebar.html"></div>
+
+    <div id="mobile_header_includer" w3-include-html="src/templates/header-mobile.html"></div>
+    <div id="mobile_sidebar_includer" w3-include-html="src/templates/sidebar-mobile.html"></div>
+
+    <div id="help_includer" w3-include-html="src/templates/help.html" class="d-none"></div>
+
+    <section class="content">
+        <div class="content_container flex-column">
+            <div class="content_header_container flex-column">
+                <span id="addTask_mobile_join_headline" class="mobile_join_headline">Kanban Project Management
+                    Tool</span>
+                <span class="content_header_headline">Add Task</span>
+            </div>
+            <div class="main-add-task" w3-include-html="src/templates/add-task-template.html"></div>
+        </div>
+    </section>
+
+</body>
+
+</html>

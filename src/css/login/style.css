@@ -1,0 +1,359 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: calc(50vh - 70px);
+    left: calc(50vw - 30px);
+    width: 100px;
+    scale: 2.8;
+    transition: all 0.5s ease-in;
+}
+
+/* === Signup Head Container === */
+
+#signup_head_container {
+    position: absolute;
+    top: 46px;
+    right: 8vw;
+    align-items: center;
+    gap: 2.5vw;
+}
+
+#signup_head_container span {
+    font-size: var(--font-size-21);
+}
+
+#signup_head_container button {
+    width: 90px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: var(--font-size-16);
+    border-radius: 10px;
+}
+
+/* === Login Container === */
+
+#login_container,
+#signup_container {
+    min-width: 560px;
+    width: 45vw;
+    max-width: 650px;
+    height: 510px;
+    align-items: center;
+    background-color: var(--white-color);
+    padding: 35px 115px;
+    gap: 35px;
+    border-radius: 30px;
+    position: relative;
+}
+
+.headline_container {
+    align-items: center;
+    gap: 24px;
+}
+
+.headline {
+    font-weight: 700;
+    font-size: var(--font-size-61);
+    color: var(--darkBlue-color);
+}
+
+.horizontal_line {
+    width: 110px;
+    border: 2px solid #29ABE2;
+    border-radius: 2px;
+}
+
+.form {
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+}
+
+.input_container {
+    width: 100%;
+    gap: 30px;
+}
+
+.input{
+    height: 50px;
+    padding: 0px 16px;
+    border: 1px solid #D1D1D1;
+    border-radius: 6px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.input input {
+    width: 100%;
+    background-color: var(--white-color);
+    font-size: var(--font-size-21);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.input input::placeholder{
+    color: #D1D1D1;
+}
+
+.input i {
+    color: #D1D1D1;
+    font-size: var(--font-size-21);
+}
+
+.includedInputs {
+    gap: 30px !important;
+}
+
+.checkbox_container {
+    width: 100%;
+    gap: 35px;
+    font-size: var(--font-size-16);
+    margin-top: 15px;
+}
+
+.checkbox-row {
+    gap: 10px;
+    position: relative;
+}
+
+.checkbox-row input {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    order: 1;
+}
+
+.checkmark {
+    height: 16px;
+    width: 16px;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+    background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: -1px;
+    right: 132px;
+    width: 6px;
+    height: 12px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.checkbox-row input:checked ~ #checkmark:after {
+    display: block;
+}
+
+.checkbox_container a {
+    color: var(--blue-color);
+}
+
+#login_button_container {
+    width: 100%;
+    gap: 35px;
+    margin-top: 15px;
+}
+
+#login_button {
+    width: 145px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size-21);
+    border-radius: 8px;
+}
+
+#guest_login_button {
+    width: 160px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size-21);
+    border-radius: 8px;
+}
+
+.flex-end,
+.flex-start {
+    width: 50%;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+.flex-start {
+    justify-content: flex-start;
+}
+
+.flex-start a {
+    text-decoration: none;
+}
+
+.checkbox_container .flex-start a:hover {
+    text-decoration: underline;
+}
+
+.arrow_left {
+    position: absolute;
+    font-size: var(--font-size-47);
+    left: 1.5vw;
+    color: var(--blue-color);
+}
+
+.arrow_left2 {
+    top: 30px;
+}
+
+/* === Signup Container === */
+
+#signup_container {
+    height: 560px;
+}
+
+#signup_button {
+    margin-top: 20px;
+    width: 145px;
+    height: 50px;
+    font-size: var(--font-size-21);
+    border-radius: 8px;
+}
+
+/* === Forgot Password Container === */
+
+#reset_password_container,
+#forgot_password_container {
+    width: 825px;
+    height: 460px;
+    align-items: center;
+    background-color: var(--white-color);
+    padding: 45px 85px;
+    gap: 35px;
+    border-radius: 30px;
+    position: relative;
+}
+
+.subheader {
+    font-size: var(--font-size-21);
+    text-align: center;
+}
+
+.forgot_password_input_container {
+    width: 100%;
+    align-items: center;
+}
+
+#forgot_password_email_input_container {
+    width: 65%;
+}
+
+#reset_password_button,
+#forgot_password_button {
+    width: 265px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size-21);
+    border-radius: 8px;
+}
+
+#forgot_password_button {
+    margin-top: 35px;
+}
+
+/* === Reset Password Container === */
+
+#reset_password_container {
+    height: 540px;
+}
+
+.reset_password_input_container {
+    width: 65%;
+    align-items: center;
+    gap: 35px;
+}
+
+.reset_password_input {
+    width: 100%;
+}
+
+.includedInputs {
+    gap: 20px;
+}
+
+.confirmation_container {
+    height: 75px;
+    position: absolute;
+    font-size: 23px;
+    color: var(--white-color);
+    background-color: var(--darkBlue-color);
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(60vh);
+    transition: all 0.5s ease-in-out;
+}
+
+#email_used_confirm,
+#reset_password_confirm,
+#create_account_confirm {
+    padding: 0px 30px;
+}
+
+#send_email_confirm {
+    align-items: center;
+    gap: 13px;
+    padding: 0px 20px;
+}
+
+/* === Global === */
+
+.error {
+    font-size: var(--font-size-16);
+    color: var(--white-color);
+}
+
+.buttonOption2 {
+    font-weight: 700;
+    font-size: var(--font-size-16);
+    background-color: var(--darkBlue-color);
+    color: var(--white-color);
+    border: none;
+}
+
+.buttonOption2:hover {
+    background-color: var(--blue-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.buttonOption1 {
+    font-size: var(--font-size-16);
+    background-color: var(--white-color);
+    color: var(--darkBlue-color);
+    border: 2px solid var(--darkBlue-color);
+}
+
+.buttonOption1:hover {
+    color: var(--blue-color);
+    border-color: var(--blue-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}

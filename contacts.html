@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="src/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="src/img/favicons/site.webmanifest">
+    <link rel="mask-icon" href="src/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="src/css/fonts.css">
+    <link rel="stylesheet" href="src/css/settings.css">
+    <link rel="stylesheet" href="src/css/global.css">
+    <link rel="stylesheet" href="src/css/templates/header.css">
+    <link rel="stylesheet" href="src/css/templates/sidebar.css">
+    <link rel="stylesheet" href="src/css/templates/help.css">
+    <link rel="stylesheet" href="src/css/add-task/style.css">
+    <link rel="stylesheet" href="src/css/add-task/mqueries.css">
+    <link rel="stylesheet" href="src/css/contacts/style.css">
+    <link rel="stylesheet" href="src/css/contacts/mqueries.css">
+    <link rel="stylesheet" href="src/css/contacts/menu-mqueries.css">
+    <script src="//cdn.jsdelivr.net/npm/desvg@1.0.2/desvg.min.js"></script>
+    <script src="src/js/storage.js"></script>
+    <script src="src/js/add-task/templates.js"></script>
+    <script src="src/js/add-task/script.js"></script>
+    <script src="src/js/add-task/select-category.js"></script>
+    <script src="src/js/add-task/select-contact.js"></script>
+    <script src="src/js/add-task/buttons.js"></script>
+    <script src="src/js/contacts/templates.js"></script>
+    <script src="src/js/contacts/script.js"></script>
+    <script src="src/js/validation.js"></script>
+    <script src="src/js/global.js"></script>
+    <title>Join - Contacts</title>
+</head>
+
+<body onload="includeHTML(); LoadContactList(); loadData()" onclick="closeHeaderMenu()">
+
+    <div id="header_includer" w3-include-html="src/templates/header.html"></div>
+    <div id="sidebar_includer" w3-include-html="src/templates/sidebar.html"></div>
+
+    <div id="mobile_header_includer" w3-include-html="src/templates/header-mobile.html"></div>
+    <div id="mobile_sidebar_includer" w3-include-html="src/templates/sidebar-mobile.html"></div>
+
+    <div id="help_includer" w3-include-html="src/templates/help.html" class="d-none"></div>
+
+    <section id="contacts" class="flex-row">
+        <article id="contact_list">
+            <div id="list_container" class="flex-column"></div>
+        </article>
+        <article id="contact_info">
+            <div class="section_header flex-row">
+                <span id="mobile_join_headline">Kanban Project Management Tool</span>
+                <div class="section_header_menu_container flex-row">
+                    <span class="section_header_menu">Contacts</span>
+                    <div class="arrow_back_container flex-column"><i id="contact_info_arrow"
+                            class='bx bx-left-arrow-alt' onclick="closeContactInfo()"></i></div>
+                </div>
+                <div class="vertical_line"></div>
+                <span id="contact_subheadline">Better with a team</span>
+                <div id="header_horizontal_line" class="horizontalLine"></div>
+            </div>
+            <div id="contact_info_container" class="flex-column d-none">
+                <div id="info_contact" class="contact flex-row">
+                    <div id="info_initials" class="contact_initials grid"></div>
+                    <div class="info_contact_name flex-column">
+                        <span id="info_name"></span>
+                        <a href="add-task.html" class="flex-row curser">
+                            <img class="add_task_img" src="src/img/group11.svg" alt="">
+                            <span class="blueFont">Add Task</span>
+                        </a>
+                    </div>
+                </div>
+                <div id="contact_information" class="flex-row">
+                    <span>Contact Information</span>
+                    <a id="edit_contact_link" class="flex-row curser" onclick="openContactMenu('edit')">
+                        <img class="edit_contact_img" src="src/img/group8.svg" alt="">
+                        <span>Edit Contact</span>
+                    </a>
+                </div>
+                <div class="information flex-column">
+                    <span>Email</span>
+                    <span id="info_email" class="blueFont"></span>
+                </div>
+                <div class="information flex-column">
+                    <span>Phone</span>
+                    <span id="info_phone"></span>
+                </div>
+            </div>
+        </article>
+        <button id="new_contact_button" class="flex-row curser" onclick="openContactMenu('add');">
+            <span id="new_contact_button_span">New contact</span>
+            <img src="src/img/newContact.png" alt="">
+        </button>
+    </section>
+
+    <div id="contact_menu" class="contact_menu flex-row box-shadow d-none">
+        <div class="contact_menu_left flex-column">
+            <img src="src/img/join-logo.svg" alt="">
+            <span id="contact_menu_header">Add contact</span>
+            <span id="contact_menu_subheader">Tasks are better with a team!</span>
+            <div class="horizontal_line"></div>
+        </div>
+        <div class="contact_menu_right flex-row">
+            <i class='bx bx-x curser' onclick="closeContactMenu()"></i>
+            <div class="circle_container grid">
+                <div class="menu_circle grid">
+                    <i id="user_icon" class='bx bx-user'></i>
+                    <span id="edit_menu_initials" class="d-none"></span>
+                </div>
+            </div>
+            <form id="contact_form" class="flex-column" onsubmit="">
+                <div id="add_contact_form" w3-include-html="src/templates/contact-form-inputs.html"></div>
+                <div id="add_contact_buttons" class="menu_buttons_container flex-row">
+                    <button id="cancel_button" class="button_option_1 flex-row curser" onclick="closeContactMenu()"
+                        type="button">Cancel
+                        <i class='bx bx-x'></i>
+                    </button>
+                    <button id="create_button" class="button_option_2 flex-row curser" type="onsubmit">Create contact
+                        <i class='bx bx-check'></i>
+                    </button>
+                </div>
+                <div id="edit_contact_buttons" class="menu_buttons_container flex-row d-none">
+                    <button id="delete_button" class="button_option_1 grid curser" onclick="" type="button">Delete
+                    </button>
+                    <button id="save_button" class="button_option_2 grid curser" type="button" onclick="">Save</button>
+                </div>
+            </form>
+            <div id="existing_contact_info" class="flex-column d-none">
+                <span id="matching_input_report"></span>
+                <div class="menu_buttons_container flex-row">
+                    <button id="change_input_button" typ="button" class="button_option_1 grid curser"
+                        onclick="switchContactElements('existing_contact_info', 'contact_form')">Change inputs
+                    </button>
+                    <button id="show_contact_button" typ="button" class="button_option_2 grid curser" onclick="">Show
+                        contact
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="partitionWindow" class="d-none" onclick="closeContactMenu()"></div>
+    <div id="contactConfirmation" class="confirmation grid box-shadow d-none"></div>
+    <div id="mobile_contact_info_button_container" class="flex-column"></div>
+</body>
+
+</html>

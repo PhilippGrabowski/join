@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="src/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="src/img/favicons/site.webmanifest">
+    <link rel="mask-icon" href="src/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="src/css/fonts.css">
+    <link rel="stylesheet" href="src/css/settings.css">
+    <link rel="stylesheet" href="src/css/global.css">
+    <link rel="stylesheet" href="src/css//templates/header.css">
+    <link rel="stylesheet" href="src/css/templates/sidebar.css">
+    <link rel="stylesheet" href="src/css/templates/help.css">
+    <link rel="stylesheet" href="src/css/add-task/style.css">
+    <link rel="stylesheet" href="src/css/add-task/mqueries.css">
+    <link rel="stylesheet" href="src/css/add-task/menu.css">
+    <link rel="stylesheet" href="src/css//board/style.css">
+    <link rel="stylesheet" href="src/css//board/mqueries.css">
+    <script src="src/js/storage.js"></script>
+    <script src="src/js/global.js"></script>
+    <script src="src/js/add-task/templates.js"></script>
+    <script src="src/js/add-task/script.js"></script>
+    <script src="src/js/add-task/select-category.js"></script>
+    <script src="src/js/add-task/select-contact.js"></script>
+    <script src="src/js/add-task/buttons.js"></script>
+    <script src="src/js/board/templates.js"></script>
+    <script src="src/js/board/script.js"></script>
+    <script src="src/js/board/filter&drag.js"></script>
+    <script src="src/js/board/menu.js"></script>
+    <script src="src/js/validation.js"></script>
+    <title>Join - Board</title>
+</head>
+
+<body onload="includeHTML(); loadDatabase()" onclick="closeHeaderMenu()">
+
+    <div id="header_includer" w3-include-html="src/templates/header.html"></div>
+    <div id="sidebar_includer" w3-include-html="src/templates/sidebar.html"></div>
+
+    <div id="mobile_header_includer" w3-include-html="src/templates/header-mobile.html"></div>
+    <div id="mobile_sidebar_includer" w3-include-html="src/templates/sidebar-mobile.html"></div>
+
+    <div id="help_includer" w3-include-html="src/templates/help.html" class="d-none"></div>
+
+    <section class="content">
+        <div class="content_container">
+            <div class="content_header_container flex-row">
+                <span id="board_mobile_join_headline" class="mobile_join_headline">Kanban Project Management
+                    Tool</span>
+                <div class="board_content_header flex-row">
+                    <div class="content_header_left flex-row">
+                        <span class="content_header_headline">Board</span>
+                    </div>
+                    <div class="content_header_right flex-row">
+                        <div class="search_container flex-row">
+                            <input id="search_input" type="text" placeholder="title" onkeyup="search('title')">
+                            <div class="search_menu_container flex-row">
+                                <i class='bx bxs-down-arrow curser' onclick="toggleFilterMenu()"></i>
+                                <div class="vertical_line"></div>
+                                <i class='bx bx-search curser'></i>
+                            </div>
+                            <ul class="filter_menu flex-column d-none">
+                                <li id="filter0" class="curser" onclick="selectFilter(this)">category</li>
+                                <li id="filter1" class="curser" onclick="selectFilter(this)">priority</li>
+                                <li id="filter2" class="curser" onclick="selectFilter(this)">contact</li>
+                            </ul>
+                        </div>
+                        <button id="add_task_button" class="flex-row curser" onclick="openAddTaskMenu('To do')">
+                            <span>Add task</span>
+                            <i class='bx bx-plus'></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="board_container">
+                <div class="task_progress_container flex-column" ondrop="moveTo('To do')"
+                    ondragover="allowDrop(event); dragHighlight('to_do_shadow')" ondragenter="rotateDraggedTask(1)">
+                    <div class="task_progress_header flex-row">
+                        <span class="curser">To do</span>
+                        <div class="add_task_link_container grid curser" onclick="openAddTaskMenu('To do')">
+                            <i class='bx bx-plus'></i>
+                        </div>
+                    </div>
+                    <div id="to_do_container" class="task_progress_list flex-column"></div>
+                </div>
+                <div class="task_progress_container flex-column" ondrop="moveTo('In progress')"
+                    ondragover="allowDrop(event); dragHighlight('in_progress_shadow')"
+                    ondragenter="rotateDraggedTask(2)">
+                    <div class=" task_progress_header flex-row">
+                        <span class="curser">In progress</span>
+                        <div class="add_task_link_container grid curser" onclick="openAddTaskMenu('In progress')">
+                            <i class='bx bx-plus'></i>
+                        </div>
+                    </div>
+                    <div id="in_progress_container" class="task_progress_list flex-column"></div>
+                </div>
+                <div class="task_progress_container flex-column" ondrop="moveTo('Awaiting Feedback')"
+                    ondragover="allowDrop(event); dragHighlight('awaiting_feedback_shadow')"
+                    ondragenter="rotateDraggedTask(3)">
+                    <div class="task_progress_header flex-row">
+                        <span class="curser">Awaiting Feedback</span>
+                        <div class="add_task_link_container grid curser" onclick="openAddTaskMenu('Awaiting Feedback')">
+                            <i class='bx bx-plus'></i>
+                        </div>
+                    </div>
+                    <div id="awaiting_feedback_container" class="task_progress_list flex-column"></div>
+                </div>
+                <div class="task_progress_container flex-column" ondrop="moveTo('Done')"
+                    ondragover="allowDrop(event); dragHighlight('done_shadow')" ondragenter="rotateDraggedTask(4)">
+                    <div class="task_progress_header flex-row">
+                        <span class="curser">Done</span>
+                    </div>
+                    <div id="done_container" class="task_progress_list flex-column"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="partitionWindow" class="d-none" onclick="closeTaskInfo(); closeAddTaskMenu()"></div>
+
+    <div id="task_information" class="d-none box-shadow">
+        <div id="task_info_container" class="flex-column">
+            <i id="back_arrow" class='bx bx-left-arrow-alt curser' onclick="closeTaskInfo()"></i>
+            <span id="task_info_category"></span>
+            <h1 id="task_info_title"></h1>
+            <p id="task_info_description"></p>
+            <div class="task_info_subcontainer flex-row">
+                <span>Due date:</span>
+                <span id="task_info_dueDate"></span>
+            </div>
+            <div class="task_info_subcontainer flex-row">
+                <span>Priority:</span>
+                <div class="task_info_priority_container flex-row">
+                    <span id="task_info_priority"></span>
+                    <div id="task_info_priority_icon" class="grid"></div>
+                </div>
+            </div>
+            <div id="task_info_subtasks_container" class="flex-column">
+                <span>Subtasks:</span>
+                <div id="task_info_subtask_list" class="flex-column"></div>
+            </div>
+            <span>Assigned To:</span>
+            <div id="task_info_team_list" class="flex-column"></div>
+        </div>
+        <div id="task_info_edit_container" class="flex-column d-none">
+            <div class="input_container flex-column">
+                <div class="input_header flex-row">
+                    <span class="label">Title</span>
+                    <div id="edit_title_amount_container" class="amount d-none">
+                        <span id="edit_title_amount"></span>/50
+                    </div>
+                </div>
+                <div class="input input_title flex-row curser">
+                    <input required id="edit_title" type="text" placeholder="Enter a title" maxlength="50"
+                        onkeyup="countChar(this, 'edit_title'); closeErrorReport('edit_title_error')"
+                        onblur="checkIfInputIsEmpty(this, editTaskInputs, 0)">
+                </div>
+                <span id="edit_title_error" class="error">This field is required</span>
+            </div>
+            <div class="input_container flex-column">
+                <div class="input_header flex-row">
+                    <span class="label">Description</span>
+                    <div id="edit_textarea_amount_container" class="amount d-none">
+                        <span id="edit_textarea_amount"></span>/200
+                    </div>
+                </div>
+                <div class="input textarea flex-row curser">
+                    <textarea required id="edit_description" type="text" placeholder="Enter a Description"
+                        maxlength="200"
+                        onkeyup="countChar(this, 'edit_textarea'); closeErrorReport('edit_description_error')"
+                        onblur="checkIfInputIsEmpty(this, editTaskInputs, 1)"></textarea>
+                </div>
+                <span id="edit_description_error" class="error">This field is required</span>
+            </div>
+            <div class="date_input_container input_container flex-column">
+                <span class="label">Due Date</span>
+                <a href="#edit_dueDate" class="input flex-row curser"
+                    onclick="openCalender('edit_dueDate', 'edit_dueDate_error')">
+                    <input required id="edit_dueDate" type="text" placeholder="dd/mm/yyyy"
+                        onchange="closeCalender(this, 'edit_dueDate')" onblur="checkDueDate(this, editTaskInputs, 2)">
+                    <img src="./src/img/calendar.png" alt="">
+                </a>
+                <span id="edit_dueDate_error" class="error">This field is required</span>
+            </div>
+            <div class="input_container flex-column">
+                <span class="label">Prio</span>
+                <div class="priority_container">
+                    <button id="priority_button6" class="urgent flex-row curser" onclick="selectPriority(6, 6)">
+                        <span>Urgent</span>
+                        <i class='bx bx-chevrons-up'></i>
+                    </button>
+                    <button id="priority_button7" class="medium flex-row curser" onclick="selectPriority(6, 7)">
+                        <span>Medium</span>
+                        <div class="medium_container flex-column">
+                            <i class='bx bx-minus medium upper_minus'></i>
+                            <i class='bx bx-minus medium lower_minus'></i>
+                        </div>
+                    </button>
+                    <button id="priority_button8" class="low flex-row curser" onclick="selectPriority(6, 8)">
+                        <span>Low</span>
+                        <i class='bx bx-chevrons-down'></i>
+                    </button>
+                </div>
+            </div>
+            <div class="select_contact_container input_container flex-column">
+                <span class="label">Assigned to</span>
+                <div id="edit_task_select_contact" class="select flex-column curser">
+                    <div class="select_typ list_element flex-row"
+                        onclick="toggleContactList('edit_task_contact_list', 'edit_task_contact_initials_container', 'invite_new_contact2', 'edit_task_new_contact', 'edit_task_select_contact', 'edit_task_select_new_contact', 'EditTask', editContacts)">
+                        <span>Select contact to assign</span>
+                        <i class='bx bxs-down-arrow curser'></i>
+                    </div>
+                    <div id="edit_task_contact_list" class="flex-column d-none"></div>
+                </div>
+                <div id="edit_task_select_new_contact" class="flex-column d-none">
+                    <div class="new_contact_input_container flex-row curser">
+                        <input id="edit_task_new_contact" type="text" placeholder="Contact email"
+                            onkeyup="closeErrorReport('edit_task_new_contact_error')"
+                            onblur="checkEmailValidation(this, editTaskInputs, 3)">
+                        <div class="confirmation_container flex-row">
+                            <i class='bx bx-x'
+                                onclick="closeInviteNewContact('edit_task_new_contact_error', 'edit_task_select_contact', 'edit_task_select_new_contact', 'edit_task_contact_list', 'edit_task_contact_initials_container', 'invite_new_contact2', 'edit_task_new_contact', 'EditTask', editContacts)"></i>
+                            <div class="vertical_line"></div>
+                            <i class='bx bx-check'
+                                onclick="inviteNewContact('edit_task_contact_initials_container', 'edit_task_new_contact_error', 'edit_task_new_contact', 'edit_task_select_contact', 'edit_task_select_new_contact', 'edit_task_contact_list', 'invite_new_contact2', 'EditTask', editContacts)"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="edit_task_contact_initials_container" class="flex-row"></div>
+                <span id="edit_task_new_contact_error" class="error"></span>
+            </div>
+            <div class="edit_task_button_container flex-row">
+                <button id="edit_task_button" class="buttonOption2 flex-row curser" type="button" onclick="">
+                    <span>Ok</span>
+                    <i class='bx bx-check'></i>
+                </button>
+            </div>
+        </div>
+        <i class='bx bx-x curser' onclick="closeTaskInfo()"></i>
+        <div class="task_info_button_container flex-row curser">
+            <div id="trash" class="trash_container grid" onclick="">
+                <i class='bx bx-trash'></i>
+            </div>
+            <div id="task_edit" class="edit_container grid" onclick="">
+                <img src="./src/img/task-edit.svg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="add_task_menu_window" class="d-none">
+        <div id="add_task_menu_container" class="flex-column">
+            <h2>Add Task</h2>
+            <div id="add_task_menu" w3-include-html="src/templates/add-task-template.html"></div>
+            <i id="closeX" class='bx bx-x curser' onclick="closeAddTaskMenu()"></i>
+        </div>
+    </div>
+</body>
+
+</html>

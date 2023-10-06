@@ -1,0 +1,183 @@
+<div class="add_task_container flex-row">
+    <div class="left_input_container flex-column">
+        <div class="input_container flex-column">
+            <div class="input_header flex-row">
+                <span class="label">Title</span>
+                <div id="title_amount_container" class="amount d-none">
+                    <span id="title_amount"></span>/50
+                </div>
+            </div>
+            <div class="input input_title flex-row curser">
+                <input required id="title" type="text" placeholder="Enter a title" maxlength="50"
+                    onkeyup="countChar(this, 'title'); closeErrorReport('title_error')"
+                    onblur="checkIfInputIsEmpty(this, addTaskInputs, 0)">
+            </div>
+            <span id="title_error" class="error">This field is required</span>
+        </div>
+        <div class="input_container flex-column">
+            <div class="input_header flex-row">
+                <span class="label">Description</span>
+                <div id="textarea_amount_container" class="amount d-none">
+                    <span id="textarea_amount"></span>/200
+                </div>
+            </div>
+            <div class="input textarea flex-row curser">
+                <textarea required id="description" type="text" placeholder="Enter a Description" maxlength="200"
+                    onkeyup="countChar(this, 'textarea'); closeErrorReport('description_error')"
+                    onblur="checkIfInputIsEmpty(this, addTaskInputs, 1)"></textarea>
+            </div>
+            <span id="description_error" class="error">This field is required</span>
+        </div>
+        <div id="priority_container1" class="input_container flex-column">
+            <span class="label">Prio</span>
+            <div class="priority_container">
+                <button id="priority_button3" class="urgent flex-row curser" onclick="selectPriority(3, 3)">
+                    <span>Urgent</span>
+                    <i class='bx bx-chevrons-up'></i>
+                </button>
+                <button id="priority_button4" class="medium flex-row curser" onclick="selectPriority(3, 4)">
+                    <span>Medium</span>
+                    <div class="medium_container flex-column">
+                        <i class='bx bx-minus medium upper_minus'></i>
+                        <i class='bx bx-minus medium lower_minus'></i>
+                    </div>
+                </button>
+                <button id="priority_button5" class="low flex-row curser" onclick="selectPriority(3, 5)">
+                    <span>Low</span>
+                    <i class='bx bx-chevrons-down'></i>
+                </button>
+            </div>
+        </div>
+        <div id="date_input_container1" class="date_input_container input_container flex-column">
+            <span class="label">Due Date</span>
+            <a href="#dueDate2" class="input flex-row curser" onclick="openCalender('dueDate2', 'dueDate2_error')">
+                <input required id="dueDate2" type="text" placeholder="dd/mm/yyyy"
+                    onchange="closeCalender(this, 'dueDate2')" onblur="checkDueDate(this, addTaskInputs, 4)">
+                <img src="./src/img/calendar.png" alt="">
+            </a>
+            <span id="dueDate2_error" class="error">This field is required</span>
+        </div>
+        <div class="input_container flex-column">
+            <div class="input_header flex-row">
+                <span class="label">Category</span>
+                <div id="category_amount_container" class="amount d-none">
+                    <span id="category_amount"></span>/20
+                </div>
+            </div>
+            <div id="select_category" class="select flex-column curser">
+                <div class="select_typ list_element flex-row" onclick="toggleCategoryList()">
+                    <div id="select_typ" class="flex-row"><span>Select task category</span></div>
+                    <i class='bx bxs-down-arrow curser'></i>
+                </div>
+                <div id="category_list" class="flex-column d-none"></div>
+            </div>
+            <div id="select_new_category" class="flex-column d-none">
+                <div class="new_category_input_container flex-row curser">
+                    <input id="new_category" type="text" placeholder="New category name" maxlength="20"
+                        onkeyup="countChar(this, 'category')">
+                    <div class="confirmation_container flex-row">
+                        <i class='bx bx-x' onclick="cancelNewCategory()"></i>
+                        <div class="vertical_line"></div>
+                        <i class='bx bx-check' onclick="createNewCategory()"></i>
+                    </div>
+                </div>
+                <div class="category_color_choise_container flex-row">
+                    <div id="color0" class="circle curser" onclick="addColor(0)"></div>
+                    <div id="color1" class="circle curser" onclick="addColor(1)"></div>
+                    <div id="color2" class="circle curser" onclick="addColor(2)"></div>
+                    <div id="color3" class="circle curser" onclick="addColor(3)"></div>
+                    <div id="color4" class="circle curser" onclick="addColor(4)"></div>
+                    <i class='bx bxs-color curser' onclick=" renderColors()"></i>
+                </div>
+            </div>
+        </div>
+        <div class="select_contact_container input_container flex-column">
+            <span class="label">Assigned to</span>
+            <div id="select_contact" class="select flex-column curser">
+                <div class="select_typ list_element flex-row"
+                    onclick="toggleContactList('add_Task_contact_list', 'contact_initials_container', 'invite_new_contact', 'new_contact', 'select_contact', 'select_new_contact', 'AddTask', contacts)">
+                    <span>Select contact to assign</span>
+                    <i class='bx bxs-down-arrow curser'></i>
+                </div>
+                <div id="add_Task_contact_list" class="flex-column d-none"></div>
+            </div>
+            <div id="select_new_contact" class="flex-column d-none">
+                <div class="new_contact_input_container flex-row curser">
+                    <input id="new_contact" type="text" placeholder="Contact email"
+                        onkeyup="closeErrorReport('new_contact_error')"
+                        onblur="checkEmailValidation(this, addTaskInputs, 2)">
+                    <div class="confirmation_container flex-row">
+                        <i class='bx bx-x'
+                            onclick="closeInviteNewContact('new_contact_error', 'select_contact', 'select_new_contact', 'add_Task_contact_list', 'contact_initials_container', 'invite_new_contact', 'new_contact', 'AddTask', contacts)"></i>
+                        <div class="vertical_line"></div>
+                        <i class='bx bx-check'
+                            onclick="inviteNewContact('contact_initials_container', 'new_contact_error', 'new_contact', 'select_contact', 'select_new_contact', 'add_Task_contact_list', 'invite_new_contact', 'AddTask', contacts)"></i>
+                    </div>
+                </div>
+            </div>
+            <div id="contact_initials_container" class="flex-row"></div>
+            <span id="new_contact_error" class="error"></span>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="right_input_container flex-column">
+        <div id="date_input_container2" class="date_input_container input_container flex-column">
+            <span class="label">Due Date</span>
+            <a href="#dueDate" class="input flex-row curser" onclick="openCalender('dueDate', 'dueDate_error')">
+                <input required id="dueDate" type="text" min="" placeholder="dd/mm/yyyy"
+                    onchange="closeCalender(this, 'dueDate')" onblur="checkDueDate(this, addTaskInputs, 3)">
+                <img src="./src/img/calendar.png" alt="">
+            </a>
+            <span id="dueDate_error" class="error">This field is required</span>
+        </div>
+        <div id="priority_container2" class="input_container flex-column">
+            <span class="label">Prio</span>
+            <div class="priority_container">
+                <button id="priority_button0" class="urgent flex-row curser" onclick="selectPriority(0, 0)">
+                    <span>Urgent</span>
+                    <i class='bx bx-chevrons-up'></i>
+                </button>
+                <button id="priority_button1" class="medium flex-row curser" onclick="selectPriority(0, 1)">
+                    <span>Medium</span>
+                    <div class="medium_container flex-column">
+                        <i class='bx bx-minus medium upper_minus'></i>
+                        <i class='bx bx-minus medium lower_minus'></i>
+                    </div>
+                </button>
+                <button id="priority_button2" class="low flex-row curser" onclick="selectPriority(0, 2)">
+                    <span>Low</span>
+                    <i class='bx bx-chevrons-down'></i>
+                </button>
+            </div>
+        </div>
+        <div class="subtask_container input_container flex-column">
+            <div class="input_header flex-row">
+                <span class="label">Subtask</span>
+                <div id="subtask_amount_container" class="amount d-none">
+                    <span id="subtask_amount"></span>/30
+                </div>
+            </div>
+            <div class="subtask_input input flex-row curser" onclick="openConfirmationButtons()">
+                <input id="subtask" type="text" placeholder="Add new subtask" maxlength="30"
+                    onkeyup="countChar(this, 'subtask')">
+                <i class='bx bx-plus'></i>
+                <div class="confirmation_container flex-row d-none">
+                    <i class='bx bx-x' onclick="stopPropagation(event); cancelAddSubtask()"></i>
+                    <div class="vertical_line"></div>
+                    <i class='bx bx-check' onclick="stopPropagation(event); addSubtask()"></i>
+                </div>
+            </div>
+            <div id="subtask_list" class="flex-column"></div>
+        </div>
+    </div>
+    <div class="add_task_button_container flex-row">
+        <button class="buttonOption1 flex-row curser" type="button" onclick="clearAddTask(0)">
+            <span>Clear</span>
+            <i class='bx bx-x'></i>
+        </button>
+        <button class="buttonOption2 flex-row curser" type="button" onclick="addtask('To do')">
+            <span>Create task</span>
+            <i class='bx bx-check'></i>
+        </button>
+    </div>
+</div>

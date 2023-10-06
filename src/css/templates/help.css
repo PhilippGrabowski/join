@@ -1,0 +1,232 @@
+/* === Help === */
+
+#help_includer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 89px 0 0 230px;
+    z-index: 2;
+    background-color: var(--white2-color);
+}
+
+#help_container {
+    width: 100%;
+    height: calc(100vh - 17px);
+    height: calc(100svh - 17px);
+    padding: 82px 60px 7vh 120px;
+    overflow-y: auto;
+}
+
+#help_container::-webkit-scrollbar {
+    width: 7px;
+}
+
+#help_container::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: #A8A8A8;
+}
+
+.help_mobile_join_headline {
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+    margin-bottom: 18px;
+}
+
+.help_mobile_join_headline span {
+    font-size: var(--font-size-16);
+    text-wrap: balance;
+}
+
+.help_mobile_join_headline i {
+    font-size: var(--font-size-36);
+}
+
+.headline-row {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 48px;
+}
+
+.headline {
+    font-weight: 700;
+    font-size: var(--font-size-61);
+}
+
+.arrow_left_container {
+    height: 100%;
+    border-radius: 50%;
+}
+
+.arrow_left_container:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.return_arrow i {
+    font-size: var(--font-size-47);
+}
+
+.help_info {
+    width: 100%;
+    padding-right: 1vw;
+    padding-bottom: 7vh;
+}
+
+.summary_container {
+    width: 100%;
+}
+
+.subheadline {
+    font-weight: 700;
+    font-size: var(--font-size-27);
+}
+
+.summary_container p {
+    margin-top: 10px;
+    font-size: var(--font-size-21);
+}
+
+.guide {
+    width: 100%;
+    margin-top: 36px;
+}
+
+.step_container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(5, auto);
+    gap: 35px;
+    row-gap: 10px;
+    margin-top: 36px;
+    padding-bottom: 30px;
+}
+
+.step {
+    font-size: var(--font-size-21);
+}
+
+/* === Media Queries === */
+
+/* === Height === */
+
+@media (max-height: 768px) {
+    #help_container {
+        padding: 65px 8.3vw 0px 8.3vw;
+    }
+    .headline-row {
+        margin-bottom: 36px;
+    }
+    .summary_container p {
+        margin-top: 7px;
+    }
+    .guide {
+        margin-top: 27px;
+    }
+    .step_container {
+        margin-top: 27px;
+    }
+}
+
+/* === Width === */
+
+@media (max-width: 1096px) {
+    #help_includer {
+        padding: 89px 0 0 180px;
+    }
+    #help_container {
+        padding: 82px 70px 7vh 70px;
+    }
+}
+
+@media (max-width: 800px) {
+    .headline-row {
+        margin-bottom: 27px;
+    }
+    .headline {
+        font-size: var(--font-size-47);
+    }
+    .return_arrow i {
+        font-size: var(--font-size-36);
+    }
+    .guide {
+        margin-top: 21px;
+    }
+    .step_container {
+        margin-top: 21px;
+        gap: 25px;
+    }
+    .step,
+    .summary_container p {
+        font-size: var(--font-size-16);
+    }
+}
+
+@media (max-width: 768px) {
+    #help_container {
+        padding: 82px 20px 7vh 20px;
+    }
+}
+
+@media (min-width: 670px) {
+    .help_mobile_join_headline {
+        display: none;
+    }
+}
+
+@media (max-width: 670px) {
+    #help_includer {
+        padding: 89px 0 0 90px;
+    }
+    #help_container {
+        width: calc(100vw - 90px);
+        padding: 0px 20px 7vh 20px;
+    }
+    .help_mobile_join_headline {
+        display: flex;
+    }
+    .arrow_left_container {
+        display: none;
+    }
+}
+
+@media (max-width: 468px) {
+    #help_includer {
+        padding: 79px 0 80px 0;
+    }
+    #help_container {
+        width: 100%;
+        height: calc(100vh - 159px);
+        height: calc(100svh - 159px);
+        padding: 0 5.8vw;
+    }
+    .step_container {
+        gap: 35px;
+    }
+    .help_info {
+        padding-bottom: 35px;
+    }
+    .help_mobile_join_headline span {
+        margin-right: 30px;
+    }
+}
+
+@media (max-width: 360px) {
+    .headline {
+        font-size: var(--font-size-36);
+    }
+    .help_mobile_join_headline span {
+        font-size: var(--font-size-14);
+    }
+    .help_mobile_join_headline i {
+        font-size: var(--font-size-27);
+    }
+    .subheadline {
+        font-size: var(--font-size-21);
+    }
+    .summary_container p,
+    .step {
+        font-size: var(--font-size-14);
+    }
+}

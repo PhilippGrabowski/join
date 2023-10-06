@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="src/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="src/img/favicons/site.webmanifest">
+    <link rel="mask-icon" href="src/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="src/css/fonts.css">
+    <link rel="stylesheet" href="src/css/settings.css">
+    <link rel="stylesheet" href="src/css/global.css">
+    <link rel="stylesheet" href="src/css//templates/header.css">
+    <link rel="stylesheet" href="src/css/templates/sidebar.css">
+    <link rel="stylesheet" href="src/css/templates/help.css">
+    <link rel="stylesheet" href="src/css/summary/style.css">
+    <link rel="stylesheet" href="src/css/summary/mqueries.css">
+    <script src="//cdn.jsdelivr.net/npm/desvg@1.0.2/desvg.min.js"></script>
+    <script src="src/js/storage.js"></script>
+    <script src="src/js/global.js"></script>
+    <script src="src/js/summary/templates.js"></script>
+    <script src="src/js/summary/script.js"></script>
+    <title>Join - Summary</title>
+</head>
+
+<body onload="includeHTML(); renderGreeting(); fillSummaryContent()" onclick="closeHeaderMenu()">
+
+    <div id="header_includer" w3-include-html="src/templates/header.html"></div>
+    <div id="sidebar_includer" w3-include-html="src/templates/sidebar.html"></div>
+
+    <div id="mobile_header_includer" w3-include-html="src/templates/header-mobile.html"></div>
+    <div id="mobile_sidebar_includer" w3-include-html="src/templates/sidebar-mobile.html"></div>
+
+    <div id="help_includer" w3-include-html="src/templates/help.html" class="d-none"></div>
+
+    <section class="content">
+        <div class="content_container">
+            <div class="content_header_container flex-row">
+                <span id="summary_mobile_join_headline" class="mobile_join_headline">Kanban Project Management
+                    Tool</span>
+                <span class="content_header_headline">Summary</span>
+                <div class="vertical_line"></div>
+                <span id="content_header_subheadline">Everything in a nutshell!</span>
+                <div id="header_horizontal_line" class="horizontal_line"></div>
+            </div>
+            <div id="summary_container" class="flex-row">
+                <div class="summary_tasks flex-column">
+                    <div class="summary_task_row flex-row">
+                        <a href="board.html" class="summary_task grid curser box-shadow">
+                            <span id="summary_task_in_bord_amount"></span>
+                            <span>Task in Bord</span>
+                        </a>
+                        <a href="board.html" class="summary_task grid curser box-shadow">
+                            <span id="summary_task_in_progress_amount"></span>
+                            <span>Task in Progress</span>
+                        </a>
+                        <a href="board.html" class="summary_task grid curser box-shadow">
+                            <span id="summary_awaiting_feedback_amount"></span>
+                            <span>Awaiting Feedback</span>
+                        </a>
+                    </div>
+                    <a href="board.html" class="upcoming_task_container flex-row curser box-shadow">
+                        <div class="priority_task_container flex-row">
+                            <div id="priority_symbol" class="priority_symbol grid"></div>
+                            <div class="priority_container flex-column">
+                                <span id="priority_amount"></span>
+                                <span id="priority"></span>
+                            </div>
+                        </div>
+                        <div class="vertical_line_2"></div>
+                        <div class="priority_deadline_container flex-column">
+                            <span id="deadline_date">October 16, 2022</span>
+                            <span>Upcoming Deadline</span>
+                        </div>
+                    </a>
+                    <div class="personal_task_row flex-row">
+                        <a href="board.html" class="personal_task_container flex-row curser box-shadow">
+                            <div class="to_do_symbol_container grid">
+                                <img class="edit_task_img" src="src/img/group8.svg" alt="">
+                            </div>
+                            <div class="priority_container flex-column">
+                                <span id="to_do_amount">1</span>
+                                <span class="to_do_text">To-do</span>
+                            </div>
+                        </a>
+                        <a href="board.html" class="personal_task_container flex-row curser box-shadow">
+                            <div class="to_do_symbol_container grid">
+                                <i class='bx bx-check'></i>
+                            </div>
+                            <div class="priority_container flex-column">
+                                <span id="done_amount">1</span>
+                                <span class="to_do_text">Done</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="greeting_container flex-column">
+                    <span id="greeting"></span>
+                    <span class="account_name"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="mobile_greeting_container" class="grid">
+        <div class="mobile_greeting_container flex-column">
+            <span id="mobile_greeting"></span>
+            <span class="account_name"></span>
+        </div>
+    </div>
+
+</body>
+
+</html>

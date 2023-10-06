@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="src/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="src/img/favicons/site.webmanifest">
+    <link rel="mask-icon" href="src/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="src/css/fonts.css">
+    <link rel="stylesheet" href="src/css/settings.css">
+    <link rel="stylesheet" href="src/css/global.css">
+    <link rel="stylesheet" href="src/css/login/style.css">
+    <link rel="stylesheet" href="src/css/login/mqueries.css">
+    <script src="src/js/storage.js"></script>
+    <script src="src/js/validation.js"></script>
+    <script src="src/js/login/script.js"></script>
+    <script src="src/js/global.js"></script>
+    <title>Join - Login</title>
+</head>
+
+<body onload="includeHTML(); loginAnimation(); loadAccounts(); loadInputs()">
+
+    <img id="login_logo" class="logo" src="src/img/capa2.svg" alt="">
+    <img id="login_logo_mobile" class="logo" src="src/img/join-logo.svg" alt="">
+
+    <div Id="signup_head_container" class="flex-row d-none">
+        <span>Not a Join user?</span>
+        <button class="buttonOption2 flex-row curser"
+            onclick="toggleLoginMenu('signup', signupInputs, signupErrorReports)">Sign up</button>
+    </div>
+
+    <div id="login_container" class="flex-column box-shadow d-none">
+        <div class="headline_container flex-column">
+            <span class="headline">Log in</span>
+            <div class="horizontal_line"></div>
+        </div>
+        <form id="login_form" class="form flex-column" onsubmit="login(); return false;">
+            <div class="input_container flex-column">
+                <div class="flex-column">
+                    <div class="input flex-row curser">
+                        <input required id="login_email_input" type="email" placeholder="Email"
+                            onkeyup="closeErrorReport('login_email_error')">
+                        <i class='bx bx-envelope'></i>
+                    </div>
+                    <span id="login_email_error" class="error">valid</span>
+                </div>
+                <div class="flex-column">
+                    <div class="input flex-row curser">
+                        <input required id="login_password_input" type="password" placeholder="Password"
+                            onkeyup="closeErrorReport('login_password_error')">
+                        <i class='bx bx-lock'></i>
+                    </div>
+                    <span id="login_password_error" class="error">valid</span>
+                </div>
+            </div>
+            <div class="checkbox_container flex-row">
+                <label class="checkbox-row flex-end flex-row">
+                    <input id="remember" type="checkbox" class="curser">
+                    <span id="checkmark" class="checkmark"></span>
+                    <span>Remember me</span>
+                </label>
+                <div class="flex-start flex-row">
+                    <a class="curser"
+                        onclick="toggleLoginMenu('forgotPassword', forgotPasswordInput, forgotPasswordErrorReport)">
+                        Forgot my password</a>
+                </div>
+            </div>
+            <div id="login_button_container" class="flex-row">
+                <div class="flex-end flex-row">
+                    <button id="login_button" class="buttonOption2 curser" type="submit">Log in</button>
+                </div>
+                <div class="flex-start flex-row">
+                    <a href="summary.html" id="guest_login_button" class="buttonOption1 curser" type="button">Guest Log
+                        in</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="signup_container" class="flex-column box-shadow d-none">
+        <i class='bx bx-left-arrow-alt arrow_left curser'
+            onclick="toggleLoginMenu('signup', loginInputs, loginErrorReports); loadInputs()"></i>
+        <div class="headline_container flex-column">
+            <span class="headline">Sign up</span>
+            <div class="horizontal_line"></div>
+        </div>
+        <form id="signup_form" class="form flex-column" onsubmit="signup(); return false;">
+            <div class="input_container flex-column">
+                <div class="flex-column">
+                    <div class="input flex-row curser">
+                        <input required id="signup_name_input" type="text" placeholder="Full Name" minlength="3"
+                            pattern="^(?!.* {2})[a-zA-ZÄäÜüÖö][a-zA-ZÄäÜüÖöß]*([ ]+[a-zA-ZÄäÜüÖö][a-zA-ZÄäÜüÖöß]*)+$"
+                            onkeyup="checkInputOnkeyUp(signupInputs, 0)" onblur="checkInputOnblur(signupInputs, 0)">
+                        <i class='bx bx-user'></i>
+                    </div>
+                    <span id="signup_name_error" class="error">valid firstname (secondname) lastname</span>
+                </div>
+                <div class="flex-column">
+                    <div class="input flex-row curser">
+                        <input required id="signup_email_input" type="email" placeholder="Email" minlength="8"
+                            onblur="checkInputOnblur(signupInputs, 1)">
+                        <i class='bx bx-envelope'></i>
+                    </div>
+                    <span id="signup_email_error" class="error">valid email</span>
+                </div>
+                <div class="flex-column">
+                    <div class="input flex-row curser">
+                        <input required id="signup_password_input" type="password" placeholder="Password"
+                            onblur="checkInputOnblur(signupInputs, 2)">
+                        <i class='bx bx-lock'></i>
+                    </div>
+                    <span id="signup_password_error" class="error">valid password</span>
+                </div>
+            </div>
+            <div id="signup_button_container" class="flex-row">
+                <button id="signup_button" class="buttonOption2 curser" type="submit">Sign up</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="forgot_password_container" class="flex-column box-shadow d-none">
+        <i class='bx bx-left-arrow-alt arrow_left arrow_left2 curser'
+            onclick="toggleLoginMenu('forgotPassword', loginInputs, loginErrorReports); loadInputs()"></i>
+        <div class="headline_container flex-column">
+            <span class="headline">I forgot my password</span>
+            <div class="horizontal_line"></div>
+        </div>
+        <span class="subheader">Don't worry! We will send you an email with the instructions to reset your
+            password.</span>
+        <form id="forgot_password_form" class="forgot_password_input_container flex-column"
+            onsubmit="sendEmail(); return false;">
+            <div id="forgot_password_email_input_container" class="input flex-row curser">
+                <input required id="forgot_password_email_input" type="email" placeholder="Email" minlength="8"
+                    onblur="checkInputOnblur(forgotPasswordInput, 0)"
+                    onkeyup="closeErrorReport('forgot_password_email_error')">
+                <i class='bx bx-envelope'></i>
+            </div>
+            <span id="forgot_password_email_error" class="error">valid email</span>
+            <button id="forgot_password_button" class="buttonOption2 flex-row curser" type="submit">Send me the
+                email</button>
+        </form>
+    </div>
+
+    <div id="reset_password_container" class="flex-column box-shadow d-none">
+        <i class='bx bx-left-arrow-alt arrow_left arrow_left2 curser'
+            onclick="toggleResetMenu(forgotPasswordInput, forgotPasswordErrorReport)"></i>
+        <div class="headline_container flex-column">
+            <span class="headline">Reset your password</span>
+            <div class="horizontal_line"></div>
+        </div>
+        <span class="subheader">Change your account password</span>
+        <form id="reset_password_form" class="reset_password_input_container flex-column" onsubmit="">
+            <div class="reset_password_input flex-column">
+                <div class="input flex-row curser"><input required id="new_password_input" type="password"
+                        placeholder="New password" pattern="^.{7,}$" onblur="checkInputOnblur(resetPasswordInputs, 0)"
+                        onkeyup="closeErrorReport('new_password_error')">
+                </div>
+                <span id="new_password_error" class="error">valid password</span>
+            </div>
+            <div class="reset_password_input flex-column">
+                <div class="input flex-row curser"><input required id="confirm_password_input" type="password"
+                        placeholder="Confirm password" pattern="^.{7,}$" onblur="checkConfirmPassword()"
+                        onkeyup="closeErrorReport('confirm_password_error')">
+                </div>
+                <span id="confirm_password_error" class="error">valid password</span>
+            </div>
+            <button id="reset_password_button" class="buttonOption2 flex-row curser" type="submit">Continue</button>
+        </form>
+    </div>
+
+    <div class="confirmation_container flex-row">
+        <span id="email_used_confirm" class="d-none">Email already used by another account</span>
+        <span id="create_account_confirm" class="d-none">Account has been created</span>
+        <span id="reset_password_confirm" class="d-none">You reset your password</span>
+        <div id="send_email_confirm" class="flex-row d-none">
+            <img src="./src/img/sendCheck.png" alt="">
+            <span>An E-Mail has been sent to you</span>
+        </div>
+    </div>
+
+</body>
+
+</html>

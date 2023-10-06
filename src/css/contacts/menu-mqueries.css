@@ -1,0 +1,202 @@
+
+@media (min-width: 1400px) {
+    .contact_menu {
+        left: calc(50vw - 605px);
+    }
+}
+
+@media (max-width: 1400px) {
+    #contact_menu_header {
+        font-size: 47px;
+    }
+    #contact_menu_subheader {
+        font-size: 21px;
+    }
+    .contact_menu {
+        left: calc(50vw - 42vw);
+    }
+}
+
+@media (max-width: 1180px) {
+    .contact_menu {
+        left: calc(50vw - 500px);
+    }
+}
+
+@media (max-width: 1000px) {
+    .contact_menu {
+        flex-direction: column;
+        width: clamp(382px, 50vw, 500px);
+        height: 760px;
+        top: calc(50vh - 380px);
+        left: calc(50vw - 25vw);
+    }
+    .contact_menu_left {
+        width: 100%;
+        height: 46%;
+        border-top-right-radius: 30px;
+        border-bottom-left-radius: 0px;
+        padding-top: 120px;
+        padding-inline: 12.1%;
+        gap: 12px;
+    }
+    .contact_menu_left img {
+        display: none;
+    }
+    .contact_menu_right {
+        width: 100%;
+        height: calc(100% - 46%);
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 30px;
+    }
+    .contact_menu_right > i {
+        font-size: 36px;
+        top: -325px;
+        right: 27px;
+        color: var(--white-color);
+    }
+    .circle_container {
+        width: 0px;
+        height: 0px;
+    }
+    .menu_circle {
+        position: absolute;
+        top: -85px;
+        left: calc(50% - 60px);
+    }
+    #contact_form {
+        width: 100%;
+        height: calc(54% - 50px);
+        justify-content: flex-start;
+        padding-inline: 12.1%;
+        margin-top: 50px;
+    }
+    .input {
+        height: 40px;
+    }
+    .contact_inputs_container {
+        gap: 15px;
+    }
+    .error {
+        font-size: 14px;
+    }
+    .menu_buttons_container {
+        margin-top: 50px;
+        justify-content: center;
+    }
+    #cancel_button {
+        display: none;
+    }
+    #edit_contact_buttons {
+        justify-content: center;
+    }
+    #delete_button {
+        width: 85px;
+    }
+    #save_button {
+        width: 74px;
+    }
+    #existing_contact_info {
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        padding-inline: 12.1%;
+    }
+    #existing_contact_info .menu_buttons_container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-top: 40px;
+    }
+    #matching_input_report {
+        text-align: center;
+    }
+}
+
+@media (max-width: 900px) {
+    .contact_menu {
+        transform: translateY(150%);
+    }
+}
+
+@media (max-width: 764px) {
+    .contact_menu {
+        left: calc(50vw - 191px);
+    }
+}
+
+@media (max-width: 468px) {
+    .input i {
+        font-size: 21px;
+    }
+    input {
+        font-size: 16px;
+    }
+    .menu_buttons_container button {
+        font-size: 18px;
+    }
+    .error {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 382px) {
+    .contact_menu {
+        width: 96vw;
+        left: calc(50vw - 48vw);
+    }
+    #contact_menu_header {
+        font-size: 36px;
+    }
+    #contact_menu_subheader {
+        font-size: 16px;
+    }
+    .horizontal_line {
+        width: 70px;
+    }
+}
+
+@media (max-height: 780px) and (min-width: 1000px) {
+    .contact_menu {
+        top: 89px
+    }
+}
+
+@media (max-height: 940px) and (max-width: 1000px) {
+    .contact_menu {
+        top: 89px
+    }
+}
+
+@media (max-height: 850px) and (max-width: 1000px) {
+    .contact_menu {
+        height: 600px;
+    }
+    .contact_menu_left {
+        padding-top: 80px;
+        gap: 10px;
+    }
+    #contact_menu_header {
+        font-size: 36px;
+    }
+    .contact_menu_right > i {
+        top: -250px;
+    }
+    .menu_circle {
+        width: 90px;
+        height: 90px;
+        top: -65px;
+        left: calc(50% - 45px);
+    }
+    .menu_circle i,
+    #edit_menu_initials {
+        font-size: 36px;
+    }
+    .menu_buttons_container {
+        margin-top: 10px;
+    }
+    .menu_buttons_container button {
+        height: 45px;
+        font-size: 18px;
+    }
+}

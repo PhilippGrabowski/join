@@ -1,0 +1,28 @@
+<div class="contact_inputs_container flex-column">
+    <div class="flex-column">
+        <div class="input flex-row curser"><input required id="inputName" type="text" placeholder="Full Name"
+                minlength="3" pattern="^(?!.* {2})[a-zA-Z][a-zA-Z]*([ ]+[a-zA-Z][a-zA-Z]*)+$"
+                onkeyup="closeErrorReport('nameError'); checkInputOnkeyUp(contactInputs, 0)"
+                onblur="checkInputOnblur(contactInputs, 0)">
+            <i class='bx bx-user'></i>
+        </div>
+        <span id="nameError" class="error">valid firstname (secondname) lastname</span>
+    </div>
+    <div class="flex-column">
+        <div class="input flex-row curser">
+            <input required id="inputEmail" type="email" placeholder="Email" minlength="8"
+                onblur="checkInputOnblur(contactInputs, 1)" onkeyup="closeErrorReport('emailError')">
+            <i class='bx bx-envelope'></i>
+        </div>
+        <span id="emailError" class="error">valid email</span>
+    </div>
+    <div class="flex-column">
+        <div class="input flex-row curser">
+            <input required id="inputPhone" type="number" placeholder="Phone" minlength="10"
+                onkeyup="closeErrorReport('phoneError'); checkInputOnkeyUp(contactInputs, 2)"
+                onblur="checkInputOnblur(contactInputs, 2)">
+            <i class='bx bx-phone'></i>
+        </div>
+        <span id="phoneError" class="error">valid phone number</span>
+    </div>
+</div>

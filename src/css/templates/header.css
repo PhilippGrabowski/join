@@ -1,0 +1,167 @@
+/* === Header === */
+
+#header {
+    height: 89px;
+    padding: 20px 30px 20px 350px;
+    z-index: 3;
+}
+
+.header {
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: var(--white-color);
+}
+
+.header_right {
+    align-items: center;
+    gap: 25px;
+}
+
+#help_link {
+    font-size: 24px;
+    font-weight: 700;
+    padding: 2px;
+    color: #CDCDCD;
+    border: 3px solid #CDCDCD;
+    border-radius: 50%;
+}
+
+#help_link:hover {
+    color: var(--darkBlue2-color);
+    border: 3px solid var(--darkBlue2-color);
+}
+
+.header_initials {
+    width: 50px;
+    height: 50px;
+    font-size: var(--font-size-21);
+    font-weight: 700;
+    color: #29abe2;
+    border: 3px solid var(--darkBlue2-color);
+    border-radius: 50%;
+}
+
+.profil_img {
+    width: 50px;
+}
+
+.header_text {
+    font-size: var(--font-size-21);
+}
+
+#header_menu {
+    position: absolute;
+    right: 30px;
+    bottom: -39.2px;
+    font-size: 16px;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 20px 0px 20px 20px;
+    color: var(--white-color);
+    background-color: var(--darkBlue-color);
+    text-decoration: none;
+    z-index: 3;
+}
+
+#header_menu:hover {
+    background-color: var(--darkBlue2-color);
+}
+
+/* === Mobile Header === */
+
+#mobile_header {
+    height: 79px;
+    padding: 20px 5.8vw;
+    z-index: 3;
+}
+
+#header_logo {
+    width: 32px;
+}
+
+#mobile_header_menu {
+    position: absolute;
+    right: 5.8vw;
+    bottom: -113px;
+    padding: 13px 0;
+    border: none;
+    border-radius: 20px 0px 20px 20px;
+    background-color: var(--darkBlue-color);
+    z-index: 3;
+}
+
+#mobile_header_menu a {
+    font-size: 16px;
+    color: var(--white-color);
+    text-decoration: none;
+    padding: 5px 18px;
+}
+
+#mobile_header_menu a:first-of-type {
+    border-top-left-radius: 10px;
+}
+
+#mobile_header_menu a:last-of-type {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#mobile_header_menu a:active {
+    background-color: var(--darkBlue2-color);
+}
+
+#header_button {
+    width: 140px;
+    height: 45px;
+    font-size: var(--font-size-16);
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 10px;
+    display: none;
+}
+
+/* === Media Queries === */
+
+@media (max-width: 1096px) {
+    #header {
+        padding: 20px 35px 20px 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    #header {
+        padding: 20px 20px 20px 200px;
+    }
+    .header_text {
+        font-size: var(--font-size-18);
+    }
+}
+
+@media (max-width: 670px) {
+    .header_text {
+        display: none;
+    }
+}
+
+@media (min-width: 468px) {
+    #mobile_header_includer {
+        display: none;
+    }
+    #header_button {
+        display: none;
+    }
+}
+
+@media (max-width: 468px) {
+    #header_includer {
+        display: none;
+    }
+    #mobile_header_includer {
+        display: unset;
+    }
+}

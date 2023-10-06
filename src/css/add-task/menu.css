@@ -1,0 +1,159 @@
+#add_task_menu_window {
+    width: clamp(468px, 77.5vw, 1116px);
+    height: 89.5vh;
+    max-height: 1380px;
+    padding: 60px 0px 55px 65px;
+    background: var(--white-color);
+    border-radius: 30px;
+    position: absolute;
+    top: calc(50vh - 44.75vh);
+    left: calc(50vw - 558px);
+    z-index: 5;
+    transform: translateX(150%);
+    transition: all 0.5s ease-in-out;
+    
+}
+
+#add_task_menu_container {
+    width: 100%;
+    height: 100%;
+    padding-right: 65px;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+}
+
+#add_task_menu_container::-webkit-scrollbar {
+    width: 7px;
+}
+
+#add_task_menu_container::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: #A8A8A8;
+}
+
+#add_task_menu_container h2 {
+    font-size: var(--font-size-61);
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+#add_task_menu_container #add_task_menu,
+#add_task_menu_container #add_task_menu .line {
+    height: 100%;
+}
+
+#add_task_menu_container .add_task_container {
+    position: unset;
+}
+
+#add_task_menu_container .add_task_button_container {
+    right: 65px;
+    bottom: 0;
+}
+
+#add_task_menu_container .lower_minus {
+    transform: translateY(-10px);
+}
+
+#add_task_menu_container .upper_minus {
+    transform: translateY(12px);
+}
+
+#closeX {
+    position: absolute;
+    top: 0px;
+    right: 35px;
+    font-size: var(--font-size-27);
+    border-radius: 50%;
+}
+
+#closeX:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1440px) {
+    #add_task_menu_window {
+        left: calc(50vw - 38.75vw);
+    }
+}
+
+@media (max-width: 1400px) {
+    #add_task_menu_container h2 {
+        font-size: 47px;
+    }
+}
+
+@media (max-width: 1096px) {
+    #add_task_menu_window {
+        padding: 60px 0px 0px 65px;
+    }
+    #add_task_menu_container {
+        overflow-y: scroll;
+    }
+    #add_task_menu_container .add_task_button_container {
+        padding-right: 0px;
+    }
+}
+
+@media (max-width: 668px) {
+    #add_task_menu_window {
+        padding: 70px 0px 70px 35px;
+    }
+    #add_task_menu_container {
+        padding-right: 35px;
+    }
+    #add_task_menu_window .add_task_button_container {
+        padding-bottom: 0px;
+    }
+}
+
+@media (max-width: 602px) {
+    #add_task_menu_window {
+        left: calc(50vw - 234px);
+    }
+}
+
+@media (max-width: 468px) {
+    #add_task_menu_window {
+        width: 100vw;
+        height: calc(100vh - 161px);
+        padding: 50px 10vw 0px 10vw;
+        background: var(--white2-color);
+        top: 81px;
+        left: 0px;
+        z-index: 5;
+        border-radius: 0px;
+    }
+    .add-task-container {
+        margin: 0px !important;
+    }
+    #add_task_menu {
+        padding-bottom: 25px;
+        overflow-y: scroll;
+    }
+    #add_task_menu::-webkit-scrollbar {
+        display: none;
+    }
+    #add_task_menu_container {
+        padding-right: 0px;
+        overflow-y: unset;
+    }
+    #add_task_menu_container h2 {
+        font-size: 36px;
+        margin-left: 0px;
+        margin-bottom: 10px;
+    }
+    #add_task_menu_container i {
+        top: 0px;
+        right: 0px;
+    }
+    .submit-btn-container {
+        right: -27px !important;
+        top: -89px !important;
+    }
+    #partitionWindow {
+        display: none;
+    }
+}
