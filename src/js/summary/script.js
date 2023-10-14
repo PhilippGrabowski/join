@@ -20,8 +20,7 @@ let stat = ['To do', 'In progress', 'Awaiting Feedback', 'Done'];
  * Renders a greeting message based on the current time and the online status of user accounts
  */
 async function renderGreeting() {
-    await loadAccounts();
-    loadHeaderInitials();
+    loadData();
     let onlineAccountIndex = getOnlineAccountIndex();
     let greeting = document.getElementById('greeting');
     let mobileGreeting = document.getElementById('mobile_greeting');

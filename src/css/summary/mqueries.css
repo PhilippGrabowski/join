@@ -54,7 +54,7 @@
         height: 50px;
     }
     .to_do_symbol_container i {
-        font-size: var(--font-size-47);
+        font-size: var(--font-size-36);
     }
     .to_do_text {
         font-size: var(--font-size-18);

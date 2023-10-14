@@ -55,9 +55,9 @@ function getActiveLink() {
 function addActiveBgr(id1, id2) {
     let element = document.getElementById(id1);
     let element2 = document.getElementById(id2);
-    if (window.innerWidth <= 468) {
+    if (window.innerWidth <= 468 && element !== null && element2 !== null) {
         element2.classList.add("active");
-    } else {
+    } else if (element !== null && element2 !== null) {
         element.classList.add("active");
     }
 }

@@ -175,6 +175,7 @@
     .content {
         padding: 79px 0px 35px 0px;
         height: calc(100vh - 80px);
+        height: calc(100svh - 80px);
     }
     .content_container::-webkit-scrollbar {
         display: none;
@@ -234,6 +235,7 @@
     #task_information {
         width: 100vw;
         height: calc(100vh - 161px);
+        height: calc(100svh - 161px);
         padding: 50px 5vw 0px 5vw;
         background: var(--white2-color);
         top: 81px;

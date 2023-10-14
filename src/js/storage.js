@@ -74,8 +74,9 @@ async function loadContacts() {
  */
 async function loadAccounts() {
     accounts = [];
-    let account = await getItem('account');
+    let account = await getItem('account2');
     account = JSON.parse(account['data']['value']);
+    console.log(account);
     for (let i = 0; i < account.length; i++) {
         let loadedAccount = account[i];
         accounts.push(loadedAccount);  
@@ -86,7 +87,7 @@ async function loadAccounts() {
  * Saves the "accounts" object as a JSON string in local storage under the key "account".
  */
 async function saveAccount() {
-    await setItem('account', JSON.stringify(accounts));
+    await setItem('account2', JSON.stringify(accounts));
 }
 
 /**

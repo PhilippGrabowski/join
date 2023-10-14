@@ -1,6 +1,7 @@
 #add_task_menu_window {
     width: clamp(468px, 77.5vw, 1116px);
     height: 89.5vh;
+    height: 89.5svh;
     max-height: 1380px;
     padding: 60px 0px 55px 65px;
     background: var(--white-color);
@@ -119,6 +120,7 @@
     #add_task_menu_window {
         width: 100vw;
         height: calc(100vh - 161px);
+        height: calc(100svh - 161px);
         padding: 50px 10vw 0px 10vw;
         background: var(--white2-color);
         top: 81px;

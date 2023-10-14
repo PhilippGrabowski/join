@@ -9,6 +9,7 @@
 #contact_list {
     width: 450px;
     height: calc(100vh - 89px);
+    height: calc(100svh - 89px);
     background-color: var(--white-color);
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
     overflow-y: scroll;
@@ -107,6 +108,7 @@
 #contact_info {
     width: calc(100vw - 680px);
     height: calc(100vh - 89px);
+    height: calc(100svh - 89px);
     padding: 82px 0px 0px 58px;
 }
 #mobile_join_headline {

@@ -159,6 +159,7 @@
     #contact_list {
         width: 100%;
         height: calc(100vh - 89px);
+        height: calc(100svh - 89px);
     }
     #list_container {
         padding: 80px 8.5% 10px 8.5%;
@@ -301,6 +302,7 @@
     }
     #contacts {
         height: 100vh;
+        height: 100svh;
         padding: 79px 5px 80px 0px;
     }
 

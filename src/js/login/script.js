@@ -400,3 +400,8 @@ function hideConfirmation(index) {
         document.getElementById(confirmations[index]).classList.add('d-none');
     }, 1000);
 }
+
+async function loadLoginAccounts() {
+    await loadAccounts();
+    await resetLoginStatus();
+}
