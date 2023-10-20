@@ -1,4 +1,4 @@
-<div class="add_task_container flex-row">
+<div class="add_task_container flex-row" onclick="closeSelectInputs()">
     <div class="left_input_container flex-column">
         <div class="input_container flex-column">
             <div class="input_header flex-row">
@@ -57,7 +57,7 @@
             </a>
             <span id="dueDate2_error" class="error">This field is required</span>
         </div>
-        <div class="input_container flex-column">
+        <div class="input_container flex-column" onclick="stopPropagation(event);">
             <div class="input_header flex-row">
                 <span class="label">Category</span>
                 <div id="category_amount_container" class="amount d-none">
@@ -91,7 +91,7 @@
                 </div>
             </div>
         </div>
-        <div class="select_contact_container input_container flex-column">
+        <div class="select_contact_container input_container flex-column" onclick="stopPropagation(event);">
             <span class="label">Assigned to</span>
             <div id="select_contact" class="select flex-column curser">
                 <div class="select_typ list_element flex-row"

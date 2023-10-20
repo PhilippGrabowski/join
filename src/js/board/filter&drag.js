@@ -17,16 +17,19 @@ function selectFilter(element) {
     input.setAttribute('placeholder', filter);
     switch (filter) {
         case 'title':
-            changeFilter(input, filter, 'category', 'priority', 'contact');
+            changeFilter(input, filter, 'category', 'description', 'priority', 'contact');
         break
         case 'category':
-            changeFilter(input, filter, 'title', 'priority', 'contact');
+            changeFilter(input, filter, 'title', 'description', 'priority', 'contact');
+        break
+        case 'description':
+            changeFilter(input, filter, 'title',  'category', 'priority', 'contact');
         break
         case 'priority':
-            changeFilter(input, filter, 'title', 'category', 'contact');
+            changeFilter(input, filter, 'title', 'category', 'description', 'contact');
         break
         case 'contact':
-            changeFilter(input, filter, 'title', 'category', 'priority');
+            changeFilter(input, filter, 'title', 'category', 'description', 'priority');
         break
     }
     search(filter);
@@ -39,9 +42,10 @@ function selectFilter(element) {
  * @param {String} list1 - First list menu element
  * @param {String} list2 - Second list menu element
  * @param {String} list3 - Third list menu element
+ * @param {String} list4 - Fourth list menu element
  */
-function changeFilter(inputfield, filter, list1, list2, list3) {
-    changeFilterMenuLists(list1, list2, list3);
+function changeFilter(inputfield, filter, list1, list2, list3, list4) {
+    changeFilterMenuLists(list1, list2, list3, list4);
     document.querySelector('.filter_menu').classList.add('d-none');
     inputfield.setAttribute('onkeyup', `search('${filter}')`);
 }
@@ -51,11 +55,13 @@ function changeFilter(inputfield, filter, list1, list2, list3) {
  * @param {String} list1 - First list menu element
  * @param {String} list2 - Second list menu element
  * @param {String} list3 - Third list menu element
+ * @param {String} list4 - Fourth list menu element
  */
-function changeFilterMenuLists(list1, list2, list3) {
+function changeFilterMenuLists(list1, list2, list3, list4) {
     document.getElementById('filter0').innerHTML = list1;
     document.getElementById('filter1').innerHTML = list2;
     document.getElementById('filter2').innerHTML = list3;
+    document.getElementById('filter3').innerHTML = list4;
     document.querySelector('.filter_menu').classList.add('d-none');
 }
 
@@ -104,6 +110,8 @@ function searchedCriteria(filter, index, searchInput) {
             return tasks2[index].title.toLowerCase().includes(searchInput);
         case 'category':
             return tasks2[index].category.name.toLowerCase().includes(searchInput);
+        case 'description':
+            return tasks2[index].description.toLowerCase().includes(searchInput);
         case 'priority':
             return tasks2[index].priority.name.toLowerCase().includes(searchInput)
     }

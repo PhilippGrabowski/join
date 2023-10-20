@@ -1,19 +1,12 @@
-@media (max-width: 1516px) {
-    .task_progress_header {
-        height: 50px;
+@media (max-width: 1200px) {
+    .board_container {
+        gap: 8px;
     }
 }
 
-@media (max-width: 1439px) {
-    .board_container {
-        grid-template-columns: repeat(2, 1fr);
-        row-gap: 0px;
-    }
-    .task_progress_container {
-        padding-bottom: 30px;
-    }
-    .task_progress_list {
-        padding-bottom: 5px;
+@media (min-width: 1096px) and (max-height: 768px) {
+    .content_container_board {
+        gap: 50px;
     }
 }
 
@@ -24,29 +17,25 @@
     .search_container {
         position: absolute;
         left: 0;
-        bottom: -85px;
+        bottom: -75px;
     }
-    .content_container {
+    .content_container_board {
         width: calc(100vw - 180px);
-        padding: 80px 35px 0 70px;
+        padding: 80px 30px 30px 30px;
     }
-}
-
-@media (max-width: 1096px) or (max-height: 1000px) {
     .content_header_container {
-        margin-bottom: 105px;
         position: relative;
     }
     .board_container {
         grid-template-columns: repeat(1, 1fr);
         row-gap: 25px;
+        overflow: unset;
     }
     .task_progress_container {
         height: min-content;
         padding-bottom: 0px;
     }
     .task {
-        min-width: 250px;
         max-width: 400px;
         height: fit-content;
     }
@@ -62,42 +51,17 @@
     }
 }
 
-@media (max-width: 768px) {
-    .content_container {
-        padding: 82px 20px 0px 20px;
-    }
-    .content_header_headline {
-        font-size: var(--font-size-47);
-    }
-    #task_information {
-        width: clamp(468px, 77.5vw, 1116px);
-        left: calc(50vw - 38.75vw);
-    }
-}
-
-@media (min-width: 670px) and (max-height: 700px) {
-    .content_container {
-        padding: 42px 20px 0 20px;
-    }
-}
-
 @media (min-width: 768px) and (max-height: 700px) {
-    .content_container {
-        padding: 42px 35px 0 70px;
+    .content_container_board {
+        padding: 40px 30px 30px 30px;
     }
 }
 
-@media (min-width: 1096px) and (max-height: 700px) {
-    .content_container {
-        padding: 42px 70px 0 120px;
-    }
-}
-
-@media (max-width: 670px) {
+@media (max-width: 768px) {
     .content {
         padding: 89px 0 0 90px;
     }
-    .content_container {
+    .content_container_board {
         width: calc(100vw - 90px);
         padding: 0px 20px 0px 20px;
     }
@@ -111,7 +75,7 @@
     }
     #search_input,
     .search_container {
-      width: 100%;
+        width: 100%;
     }
     #add_task_button {
         padding: 1px;
@@ -122,9 +86,9 @@
     #add_task_button i {
         font-size: var(--font-size-36);
     }
-    .task,
-    .dragbox-shadow  {
-        min-width: calc(100vw - 140px);
+    #task_information {
+        width: clamp(468px, 77.5vw, 1116px);
+        left: calc(50vw - 38.75vw);
     }
     #task_information .initial_container {
         width: 40px;
@@ -165,6 +129,20 @@
     }
 }
 
+@media (min-width: 468px) and (max-height: 900px) {
+    #task_information {
+        height: 700px;
+        top: calc(50vh - 350px);
+    }
+}
+
+@media (min-width: 468px) and (max-height: 768px) {
+    #task_information {
+        height: 580px;
+        top: calc(50vh - 290px);
+    }
+}
+
 @media (min-width: 468px) {
     #back_arrow {
         display: none;
@@ -177,10 +155,10 @@
         height: calc(100vh - 80px);
         height: calc(100svh - 80px);
     }
-    .content_container::-webkit-scrollbar {
+    .content_container_board::-webkit-scrollbar {
         display: none;
     }
-    .content_container {
+    .content_container_board {
         width: 100%;
         height: calc(100vh - 169px);
         height: calc(100svh - 169px);
@@ -288,11 +266,5 @@
     }
     #closeX:active {
         background-color: rgba(0, 0, 0, 0.1);
-    }
-}
-
-@media (max-height: 1000px) {
-    .content_header_container {
-        margin-bottom: 100px;
     }
 }

@@ -2,7 +2,7 @@
 
 #header {
     height: 89px;
-    padding: 20px 30px 20px 350px;
+    padding: 20px 30px 20px 290px;
     z-index: 3;
 }
 
@@ -129,7 +129,7 @@
 
 @media (max-width: 1096px) {
     #header {
-        padding: 20px 35px 20px 250px;
+        padding: 20px 30px 20px 210px;
     }
 }
 
@@ -137,12 +137,6 @@
     #header {
         padding: 20px 20px 20px 200px;
     }
-    .header_text {
-        font-size: var(--font-size-18);
-    }
-}
-
-@media (max-width: 670px) {
     .header_text {
         display: none;
     }

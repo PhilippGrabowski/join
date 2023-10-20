@@ -9,7 +9,7 @@
 .content_container {
     width: calc(100vw - 230px);
     height: 100%;
-    padding: 82px 0 0 120px;
+    padding: 80px 30px 30px 60px;
     gap: 40px;
 }
 

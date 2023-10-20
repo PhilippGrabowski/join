@@ -7,24 +7,21 @@
     overflow-y: hidden;
 }
 
-.content_container {
+.content_container_board {
     width: calc(100vw - 230px);
-    height: calc(100vh - 89px);
-    height: calc(100svh - 89px);
-    padding: 80px 70px 0 120px;
+    height: 100%;
+    padding: 80px 30px 30px 60px;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 110px;
 }
 
-.content_container::-webkit-scrollbar {
+.content_container_board::-webkit-scrollbar {
     display: none;
 }
 
 /* === Header === */
-
-.content_header_container {
-    margin-bottom: 100px;
-}
-
 .board_content_header {
     width: 100%;
     justify-content: space-between;
@@ -96,10 +93,10 @@
 }
 
 .filter_menu {
-    width: 110px;
+    width: 125px;
     position: absolute;
     right: 0px;
-    bottom: -94px;
+    bottom: -124px;
     background-color: var(--darkBlue-color);
     border-radius: 0px 10px 10px 10px;
 }
@@ -159,20 +156,21 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
+    overflow: hidden;
 }
 
 .task_progress_container {
     height: 100%;
-    padding-bottom: 8.7vh;
     overflow-y: auto;
 }
 
 .task_progress_container::-webkit-scrollbar {
-   display: none;
+    display: none;
 }
 
 .dragbox-shadow {
     width: 100%;
+    min-width: 180px;
     background-color: rgba(9, 25, 49, 0.1);
     border-radius: 30px;
     border: 2px dotted darkgray;
@@ -215,6 +213,7 @@
     height: 100%;
     gap: 35px;
     padding-right: 5px;
+    padding-bottom: 10px;
     overflow-y: auto;
     overflow-x: hidden;
     margin-top: 25px;
@@ -234,6 +233,7 @@
 
 .task {
     width: 100%;
+    min-width: 180px;
     padding: 18px 20px;
     gap: 10px;
     background-color: var(--white-color);
@@ -257,7 +257,7 @@
     text-overflow: ellipsis;
     white-space: initial;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 }
 

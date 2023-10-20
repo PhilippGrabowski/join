@@ -152,6 +152,25 @@ function resetSubtask() {
     cancelAddSubtask();
 }
 
+function closeSelectInputs() {
+    let newCategory = document.getElementById('select_new_category');
+    if (newCategory.classList.contains('d-none') == false) {
+        cancelNewCategory();
+    }
+    let categoryList = document.getElementById('category_list');
+    if (categoryList.classList.contains('d-none') == false) {
+        toggleCategoryList();
+    }
+    let newContact = document.getElementById('select_new_contact');
+    if (newContact.classList.contains('d-none') == false) {
+        closeInviteNewContact('new_contact_error', 'select_contact', 'select_new_contact', 'add_Task_contact_list', 'contact_initials_container', 'invite_new_contact', 'new_contact', 'AddTask', contacts);
+    }
+    let contactList = document.getElementById('add_Task_contact_list');
+    if (contactList.classList.contains('d-none') == false) {
+        toggleContactList('add_Task_contact_list', 'contact_initials_container', 'invite_new_contact', 'new_contact', 'select_contact', 'select_new_contact', 'AddTask', contacts);
+    }
+}
+
 
 /*________________________________________Create Button Functions______________________________________*/
 

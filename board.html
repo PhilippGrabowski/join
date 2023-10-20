@@ -50,7 +50,7 @@
     <div id="help_includer" w3-include-html="src/templates/help.html" class="d-none"></div>
 
     <section class="content">
-        <div class="content_container">
+        <div class="content_container_board">
             <div class="content_header_container flex-row">
                 <span id="board_mobile_join_headline" class="mobile_join_headline">Kanban Project Management
                     Tool</span>
@@ -68,8 +68,9 @@
                             </div>
                             <ul class="filter_menu flex-column d-none">
                                 <li id="filter0" class="curser" onclick="selectFilter(this)">category</li>
-                                <li id="filter1" class="curser" onclick="selectFilter(this)">priority</li>
-                                <li id="filter2" class="curser" onclick="selectFilter(this)">contact</li>
+                                <li id="filter1" class="curser" onclick="selectFilter(this)">description</li>
+                                <li id="filter2" class="curser" onclick="selectFilter(this)">priority</li>
+                                <li id="filter3" class="curser" onclick="selectFilter(this)">contact</li>
                             </ul>
                         </div>
                         <button id="add_task_button" class="flex-row curser" onclick="openAddTaskMenu('To do')">
@@ -105,7 +106,7 @@
                     ondragover="allowDrop(event); dragHighlight('awaiting_feedback_shadow')"
                     ondragenter="rotateDraggedTask(3)">
                     <div class="task_progress_header flex-row">
-                        <span class="curser">Awaiting Feedback</span>
+                        <span class="curser">In Check</span>
                         <div class="add_task_link_container grid curser" onclick="openAddTaskMenu('Awaiting Feedback')">
                             <i class='bx bx-plus'></i>
                         </div>

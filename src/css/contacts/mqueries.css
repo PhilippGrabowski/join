@@ -98,7 +98,7 @@
 
 @media (max-width: 1096px) {
     #contacts {
-        padding: 89px 2.3vw 0 180px;
+        padding: 89px 0 0 180px;
     }
     #contact_list::-webkit-scrollbar {
         width: 4px;
@@ -193,7 +193,7 @@
     #contact_info {
         display: none;
         width: calc(100vw - 180px);
-        padding: 32.5px 2.3vw 0 70px;
+        padding: 32.5px 30px 0 30px
     }
     .section_header {
         flex-direction: column;
@@ -247,23 +247,12 @@
 }
 
 @media (max-width: 768px) {
-    #contact_info {
-        padding: 32.5px 2.3vw 0 20px;
-    }
-    #contactConfirmation {
-        left: 200px;
-    }
-    .info_contact_name span {
-        width: 300px;
-    }
-}
-
-@media (max-width: 670px) {
     #contacts {
         padding: 89px 0px 0px 90px;
     }
     #contact_info {
         width: calc(100vw - 90px);
+        padding: 32.5px 20px 0 20px;
     }
     .info_contact_name {
         width: 70%;
@@ -280,7 +269,7 @@
     }
 }
 
-@media (max-width: 670px) and (max-height: 800px) {
+@media (max-width: 768px) and (max-height: 800px) {
     .info_contact {
         margin-top: 20px;
     }
